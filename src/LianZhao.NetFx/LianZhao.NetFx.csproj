@@ -15,6 +15,7 @@
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <NuGetPackageImportStamp>883e43cd</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,6 +36,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <None Include="Linq\Enumerable.MinAndMax.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Enumerable.MinAndMax.g.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionExtensions.cs" />
@@ -53,6 +58,11 @@
     <Compile Include="ExceptionEventArgs.cs" />
     <Compile Include="FuncExtensions.cs" />
     <Compile Include="GuidExtensions.cs" />
+    <Compile Include="Linq\Enumerable.MinAndMax.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Enumerable.MinAndMax.tt</DependentUpon>
+    </Compile>
     <Compile Include="Linq\Enumerable_Concat.cs" />
     <Compile Include="Linq\Enumerable_JoinToString.cs" />
     <Compile Include="Media\Point2D.cs" />
@@ -121,6 +131,9 @@
     <Compile Include="StringExtensions.cs" />
     <Compile Include="Void.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -129,4 +142,14 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <!-- For T4 Templates Translation-->
+  <PropertyGroup>
+    <TransformOnBuild>true</TransformOnBuild>
+    <TransformOutOfDateOnly>true</TransformOutOfDateOnly>
+    <AfterTransform>OnAfterTransform</AfterTransform>
+  </PropertyGroup>
+  <Import Project="..\tools\msbuild\Microsoft.TextTemplating.targets" />
+  <Target Name="OnAfterTransform">
+    <Message Text="This executes after templates are transformed" Importance="high" />
+  </Target>
 </Project>
