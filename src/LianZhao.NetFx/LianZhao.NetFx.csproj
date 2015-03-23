@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <Compile Include="ArrayExtensions.cs" />
     <Compile Include="Linq\Enumerable.cs" />
     <Compile Include="Linq\Enumerable.MinAndMax.cs" />
     <None Include="Linq\Enumerable.MinAndMax.tt">
