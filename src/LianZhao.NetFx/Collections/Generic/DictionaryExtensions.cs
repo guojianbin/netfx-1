@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LianZhao.Collections.Generic
 {
@@ -39,6 +40,27 @@ namespace LianZhao.Collections.Generic
                 }
             }
             return default(TValue);
+        }
+
+        public static bool ContentEquals<TKey, TValue>(
+            this IDictionary<TKey, TValue> left,
+            IDictionary<TKey, TValue> right,
+            IEqualityComparer<TKey> keyEqualityComparer = null,
+            IEqualityComparer<TValue> valueEqualityComparer = null)
+        {
+            if (left == null || right == null || left.Count != right.Count)
+            {
+                return false;
+            }
+
+            keyEqualityComparer = keyEqualityComparer ?? EqualityComparer<TKey>.Default;
+            valueEqualityComparer = valueEqualityComparer ?? EqualityComparer<TValue>.Default;
+
+            return
+                left.Keys.All(
+                    leftKey =>
+                    right.Keys.Contains(leftKey, keyEqualityComparer)
+                    && valueEqualityComparer.Equals(left[leftKey], right[leftKey]));
         }
     }
 }
