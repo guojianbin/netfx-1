@@ -62,5 +62,54 @@ namespace LianZhao.Collections.Generic
                     right.Keys.Contains(leftKey, keyEqualityComparer)
                     && valueEqualityComparer.Equals(left[leftKey], right[leftKey]));
         }
+
+        #region ToLookup
+        public static ILookup<TKey, TValue> ToLookup<TKey, TValue>(
+            this IDictionary<TKey, List<TValue>> dictionary,
+            IEqualityComparer<TKey> comparer = null)
+        {
+            return dictionary.ToLookup<TKey, List<TValue>, TValue>(comparer);
+        }
+
+        public static ILookup<TKey, TValue> ToLookup<TKey, TValue>(
+            this IDictionary<TKey, IEnumerable<TValue>> dictionary,
+            IEqualityComparer<TKey> comparer = null)
+        {
+            return dictionary.ToLookup<TKey, IEnumerable<TValue>, TValue>(comparer);
+        }
+
+        public static ILookup<TKey, TValue> ToLookup<TKey, TValue>(
+            this IDictionary<TKey, ICollection<TValue>> dictionary,
+            IEqualityComparer<TKey> comparer = null)
+        {
+            return dictionary.ToLookup<TKey, ICollection<TValue>, TValue>(comparer);
+        }
+
+        public static ILookup<TKey, TValue> ToLookup<TKey, TValue>(
+            this IDictionary<TKey, IList<TValue>> dictionary,
+            IEqualityComparer<TKey> comparer = null)
+        {
+            return dictionary.ToLookup<TKey, IList<TValue>, TValue>(comparer);
+        }
+
+        public static ILookup<TKey, TValue> ToLookup<TKey, TValue>(
+            this IEnumerable<KeyValuePair<TKey, IEnumerable<TValue>>> dictionary,
+            IEqualityComparer<TKey> comparer = null)
+        {
+            return dictionary.ToLookup<TKey, IEnumerable<TValue>, TValue>(comparer);
+        }
+
+        private static ILookup<TKey, TValue> ToLookup<TKey, TCollection, TValue>(
+            this IEnumerable<KeyValuePair<TKey, TCollection>> dictionary,
+            IEqualityComparer<TKey> comparer = null)
+            where TCollection : IEnumerable<TValue>
+        {
+            return
+                dictionary.Where(kvp => !Equals(kvp.Value, default(TCollection)))
+                    .SelectMany(kvp => kvp.Value, (kvp, value) => new { kvp.Key, Value = value })
+                    .ToLookup(kvp => kvp.Key, kvp => kvp.Value, comparer);
+        }
+
+        #endregion
     }
 }
