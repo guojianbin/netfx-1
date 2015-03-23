@@ -71,6 +71,7 @@
     <Compile Include="Linq\Enumerable_Random.cs" />
     <Compile Include="Linq\Enumerable_RandomTake.cs" />
     <Compile Include="Linq\Enumerable_Shuffle.cs" />
+    <Compile Include="Linq\Lookup.cs" />
     <Compile Include="Media\Point2D.cs" />
     <Compile Include="Media\Point3D.cs" />
     <Compile Include="Media\Point2D_Add.cs" />
