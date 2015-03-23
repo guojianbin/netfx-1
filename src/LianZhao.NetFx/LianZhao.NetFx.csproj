@@ -40,6 +40,7 @@
     <Compile Include="Int32Extension.cs" />
     <Compile Include="Linq\Enumerable.cs" />
     <Compile Include="Linq\Enumerable.MinAndMax.cs" />
+    <Compile Include="Patterns\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="RandomExtensions.cs" />
     <Compile Include="SimpleProgress.cs" />
     <Compile Include="Windows\Input\CommandExtensions.cs" />
