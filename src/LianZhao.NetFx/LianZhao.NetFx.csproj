@@ -43,6 +43,10 @@
     <Compile Include="Collections\Generic\FuncComparer.cs" />
     <Compile Include="Collections\Generic\FuncEqualityComparer.cs" />
     <Compile Include="Collections\Generic\GroupingList.cs" />
+    <Compile Include="Data\Entity\AsyncQueryProvider.cs" />
+    <Compile Include="Data\Entity\EntityExtensions.cs" />
+    <Compile Include="Data\Entity\IAsyncQueryProvider.cs" />
+    <Compile Include="Data\Entity\IEntity.cs" />
     <Compile Include="DateTimeExtensions.cs" />
     <Compile Include="DisposableObject.cs" />
     <Compile Include="DisposableObjectOwner.cs" />
