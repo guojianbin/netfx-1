@@ -37,8 +37,11 @@
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
     <Compile Include="ArrayExtensions.cs" />
+    <Compile Include="Int32Extension.cs" />
     <Compile Include="Linq\Enumerable.cs" />
     <Compile Include="Linq\Enumerable.MinAndMax.cs" />
+    <Compile Include="RandomExtensions.cs" />
+    <Compile Include="SimpleProgress.cs" />
     <Compile Include="Windows\Input\CommandExtensions.cs" />
     <Compile Include="Windows\Input\DelegateCommand.cs" />
     <None Include="Linq\Enumerable.MinAndMax.tt">
