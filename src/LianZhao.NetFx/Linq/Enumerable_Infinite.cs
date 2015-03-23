@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Huaxing.Linq
+namespace LianZhao.Linq
 {
     public static partial class Enumerable
     {
