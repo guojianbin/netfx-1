@@ -1,12 +1,4 @@
-﻿<#@ template debug="false" hostspecific="false" language="C#" #>
-<#@ assembly name="System.Core" #>
-<#@ import namespace="System.Linq" #>
-<#@ import namespace="System.Text" #>
-<#@ import namespace="System.Collections.Generic" #>
-<#@ output extension=".g.cs" #>
-
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,21 +6,23 @@ namespace LianZhao.Linq
 {
     public static partial class Enumerable
     {
-        <#
-    foreach (var t4GenericType in T4GenericTypes)
-    {#>
-        public static Tuple<<#= t4GenericType#>, <#= t4GenericType#>> MinAndMax(this IEnumerable<<#= t4GenericType#>> source)
+        public static Tuple<T, T> MinAndMax<T>(this IEnumerable<T> source, IComparer<T> comparer = null)
         {
             if (!source.Any())
             {
                 throw new ArgumentException("Sequence contains no elements", "source");
             }
 
+            if (comparer == null)
+            {
+                comparer = Comparer<T>.Default;
+            }
+
             var min = source.First();
             var max = min;
             foreach (var element in source)
             {
-                var r = element.CompareTo(min);
+                var r = comparer.Compare(element, min);
                 if (r < 0)
                 {
                     min = element;
@@ -41,12 +35,5 @@ namespace LianZhao.Linq
 
             return Tuple.Create(min, max);
         }
-    <#}
-    #>
-
     }
 }
-    
-<#+
-    private string[] T4GenericTypes = {"int", "long", "float", "double", "decimal"};
-#>

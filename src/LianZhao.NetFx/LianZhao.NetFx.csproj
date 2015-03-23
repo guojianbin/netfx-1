@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <Compile Include="Linq\Enumerable.MinAndMax.cs" />
     <None Include="Linq\Enumerable.MinAndMax.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Enumerable.MinAndMax.g.cs</LastGenOutput>
