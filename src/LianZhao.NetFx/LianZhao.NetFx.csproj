@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <Compile Include="Linq\Enumerable.cs" />
     <Compile Include="Linq\Enumerable.MinAndMax.cs" />
     <None Include="Linq\Enumerable.MinAndMax.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -65,7 +66,11 @@
       <DependentUpon>Enumerable.MinAndMax.tt</DependentUpon>
     </Compile>
     <Compile Include="Linq\Enumerable_Concat.cs" />
+    <Compile Include="Linq\Enumerable_Infinite.cs" />
     <Compile Include="Linq\Enumerable_JoinToString.cs" />
+    <Compile Include="Linq\Enumerable_Random.cs" />
+    <Compile Include="Linq\Enumerable_RandomTake.cs" />
+    <Compile Include="Linq\Enumerable_Shuffle.cs" />
     <Compile Include="Media\Point2D.cs" />
     <Compile Include="Media\Point3D.cs" />
     <Compile Include="Media\Point2D_Add.cs" />
