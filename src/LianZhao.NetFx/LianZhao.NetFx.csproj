@@ -39,6 +39,8 @@
     <Compile Include="ArrayExtensions.cs" />
     <Compile Include="Linq\Enumerable.cs" />
     <Compile Include="Linq\Enumerable.MinAndMax.cs" />
+    <Compile Include="Windows\Input\CommandExtensions.cs" />
+    <Compile Include="Windows\Input\DelegateCommand.cs" />
     <None Include="Linq\Enumerable.MinAndMax.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Enumerable.MinAndMax.g.cs</LastGenOutput>
