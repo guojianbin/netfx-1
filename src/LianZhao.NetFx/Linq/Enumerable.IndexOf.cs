@@ -6,7 +6,16 @@ namespace LianZhao.Linq
     {
         public static int IndexOf<T>(this IEnumerable<T> source, T item, IEqualityComparer<T> comparer = null)
         {
-            comparer = comparer ?? EqualityComparer<T>.Default;
+            if (comparer == null)
+            {
+                var list = source as IList<T>;
+                if (list != null)
+                {
+                    return list.IndexOf(item);
+                }
+                comparer = EqualityComparer<T>.Default;
+            }
+
             using (var itor = source.GetEnumerator())
             {
                 var i = 0;
