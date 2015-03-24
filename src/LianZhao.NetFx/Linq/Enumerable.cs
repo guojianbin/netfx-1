@@ -85,55 +85,7 @@ namespace LianZhao.Linq
             }
         }
 
-        public static int IndexOf(this IEnumerable<int> source, int value)
-        {
-            if (source is IList<int>)
-            {
-                return (source as IList<int>).IndexOf(value);
-            }
-
-            using (var itor = source.GetEnumerator())
-            {
-                var i = 0;
-                while (itor.MoveNext())
-                {
-                    if (value == itor.Current)
-                    {
-                        return i;
-                    }
-
-                    i++;
-                }
-            }
-
-            return -1;
-        }
-
-        public static int IndexOf(this IEnumerable<long> source, long value)
-        {
-            if (source is IList<long>)
-            {
-                return (source as IList<long>).IndexOf(value);
-            }
-
-            using (var itor = source.GetEnumerator())
-            {
-                var i = 0;
-                while (itor.MoveNext())
-                {
-                    if (value == itor.Current)
-                    {
-                        return i;
-                    }
-
-                    i++;
-                }
-            }
-
-            return -1;
-        }
-
-        public static int IndexOf<T>(this IEnumerable<T> source, T value, IEqualityComparer<T> comparer = null)
+        public static int IndexOf<T>(this IEnumerable<T> source, T item, IEqualityComparer<T> comparer = null)
         {
             comparer = comparer ?? EqualityComparer<T>.Default;
             using (var itor = source.GetEnumerator())
@@ -141,7 +93,7 @@ namespace LianZhao.Linq
                 var i = 0;
                 while (itor.MoveNext())
                 {
-                    if (comparer.Equals(itor.Current, value))
+                    if (comparer.Equals(itor.Current, item))
                     {
                         return i;
                     }

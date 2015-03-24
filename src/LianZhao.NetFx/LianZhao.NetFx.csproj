@@ -39,6 +39,11 @@
     <Compile Include="ArrayExtensions.cs" />
     <Compile Include="Int32Extension.cs" />
     <Compile Include="Linq\Enumerable.cs" />
+    <Compile Include="Linq\Enumerable.IndexOf.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Enumerable.IndexOf.tt</DependentUpon>
+    </Compile>
     <Compile Include="Linq\Enumerable.MinAndMax.cs" />
     <Compile Include="Patterns\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="RandomExtensions.cs" />
@@ -153,7 +158,12 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Linq\Enumerable.IndexOf.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Enumerable.IndexOf.g.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

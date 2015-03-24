@@ -1,0 +1,56 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".g.cs" #>
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace LianZhao.Linq
+{
+    public static partial class Enumerable
+    {
+        <#
+    foreach (var t4GenericType in T4GenericTypes)
+    {#>
+        public static int IndexOf(this IEnumerable<<#= t4GenericType#>> source, <#= t4GenericType#> item)
+        {
+            var list = source as IList<<#= t4GenericType#>>;
+            if (list != null)
+            {
+                return list.IndexOf(item);
+            }
+            if (source is IList<<#= t4GenericType#>>)
+            {
+                return (source as IList<<#= t4GenericType#>>).IndexOf(item);
+            }
+
+            using (var itor = source.GetEnumerator())
+            {
+                var i = 0;
+                while (itor.MoveNext())
+                {
+                    if (item == itor.Current)
+                    {
+                        return i;
+                    }
+
+                    i++;
+                }
+            }
+
+            return -1;
+        }
+    <#}
+    #>
+
+    }
+}
+    
+<#+
+    private string[] T4GenericTypes = {"int", "long", "float", "double", "decimal"};
+#>
