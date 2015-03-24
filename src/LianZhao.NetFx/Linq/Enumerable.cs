@@ -95,31 +95,6 @@ namespace LianZhao.Linq
             return source.Concat(System.Linq.Enumerable.Repeat(defaultValue, count)).Take(count);
         }
         
-        public static int IndexOfMax(this IEnumerable<int> source)
-        {
-            return source.IsEmpty() ? -1 : source.MaxAndIndex().Item2;
-        }
-
-        public static int IndexOfMax(this IEnumerable<long> source)
-        {
-            return source.IsEmpty() ? -1 : source.MaxAndIndex().Item2;
-        }
-
-        public static int IndexOfMax(this IEnumerable<float> source)
-        {
-            return source.IsEmpty() ? -1 : source.MaxAndIndex().Item2;
-        }
-
-        public static int IndexOfMax(this IEnumerable<double> source)
-        {
-            return source.IsEmpty() ? -1 : source.MaxAndIndex().Item2;
-        }
-
-        public static int IndexOfMax(this IEnumerable<decimal> source)
-        {
-            return source.IsEmpty() ? -1 : source.MaxAndIndex().Item2;
-        }
-
         public static int IndexOfMin(this IEnumerable<int> source)
         {
             return source.IsEmpty() ? -1 : source.MinAndIndex().Item2;

@@ -44,6 +44,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Enumerable.IndexOf.tt</DependentUpon>
     </Compile>
+    <Compile Include="Linq\Enumerable.IndexOfMax.cs" />
     <Compile Include="Linq\Enumerable.MinAndIndex.g.cs">
       <DependentUpon>Enumerable.MinAndIndex.tt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -56,6 +57,11 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Linq\Enumerable.MaxAndIndex.cs" />
+    <Compile Include="Linq\Enumerable.IndexOfMax.g.cs">
+      <DependentUpon>Enumerable.IndexOfMax.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Linq\Enumerable.MinAndMax.cs" />
     <Compile Include="Patterns\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="RandomExtensions.cs" />
@@ -176,6 +182,10 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Enumerable.IndexOf.g.cs</LastGenOutput>
     </Content>
+    <None Include="Linq\Enumerable.IndexOfMax.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Enumerable.IndexOfMax.g.cs</LastGenOutput>
+    </None>
     <None Include="Linq\Enumerable.MinAndIndex.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Enumerable.MinAndIndex.g.cs</LastGenOutput>
