@@ -44,6 +44,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Enumerable.IndexOf.tt</DependentUpon>
     </Compile>
+    <Compile Include="Linq\Enumerable.MaxAndIndex.g.cs">
+      <DependentUpon>Enumerable.MaxAndIndex.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Linq\Enumerable.MaxAndIndex.cs" />
     <Compile Include="Linq\Enumerable.MinAndMax.cs" />
     <Compile Include="Patterns\UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="RandomExtensions.cs" />
@@ -164,6 +170,10 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Enumerable.IndexOf.g.cs</LastGenOutput>
     </Content>
+    <None Include="Linq\Enumerable.MaxAndIndex.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Enumerable.MaxAndIndex.g.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
