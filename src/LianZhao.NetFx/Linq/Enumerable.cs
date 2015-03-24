@@ -94,42 +94,7 @@ namespace LianZhao.Linq
         {
             return source.Concat(System.Linq.Enumerable.Repeat(defaultValue, count)).Take(count);
         }
-
-        public static Tuple<int, int> MinAndIndex(this IEnumerable<int> source)
-        {
-            return
-                source.Select((value, index) => Tuple.Create(value, index))
-                    .Aggregate((a, b) => (a.Item1 < b.Item1) ? a : b);
-        }
-
-        public static Tuple<long, int> MinAndIndex(this IEnumerable<long> source)
-        {
-            return
-                source.Select((value, index) => Tuple.Create(value, index))
-                    .Aggregate((a, b) => (a.Item1 < b.Item1) ? a : b);
-        }
-
-        public static Tuple<float, int> MinAndIndex(this IEnumerable<float> source)
-        {
-            return
-                source.Select((value, index) => Tuple.Create(value, index))
-                    .Aggregate((a, b) => (a.Item1 < b.Item1) ? a : b);
-        }
-
-        public static Tuple<double, int> MinAndIndex(this IEnumerable<double> source)
-        {
-            return
-                source.Select((value, index) => Tuple.Create(value, index))
-                    .Aggregate((a, b) => (a.Item1 < b.Item1) ? a : b);
-        }
-
-        public static Tuple<decimal, int> MinAndIndex(this IEnumerable<decimal> source)
-        {
-            return
-                source.Select((value, index) => Tuple.Create(value, index))
-                    .Aggregate((a, b) => (a.Item1 < b.Item1) ? a : b);
-        }
-
+        
         public static int IndexOfMax(this IEnumerable<int> source)
         {
             return source.IsEmpty() ? -1 : source.MaxAndIndex().Item2;
